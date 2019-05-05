@@ -41,7 +41,7 @@ namespace Microsoft.eShopOnContainers.WebMVC
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddAppInsight(Configuration)
-                    .AddHealthChecks(Configuration)
+                    //.AddHealthChecks(Configuration)
                     .AddCustomMvc(Configuration)
                     .AddDevspaces()
                     .AddHttpClientServices(Configuration)
@@ -141,8 +141,8 @@ namespace Microsoft.eShopOnContainers.WebMVC
                 .AddCheck("self", () => HealthCheckResult.Healthy())
                 .AddUrlGroup(new Uri(configuration["PurchaseUrlHC"]), name: "purchaseapigw-check", tags: new string[] { "purchaseapigw" })
                 .AddUrlGroup(new Uri(configuration["MarketingUrlHC"]), name: "marketingapigw-check", tags: new string[] { "marketingapigw" })
-                .AddUrlGroup(new Uri(configuration["IdentityUrlHC"]), name: "identityapi-check", tags: new string[] { "identityapi" });                
-            
+                .AddUrlGroup(new Uri(configuration["IdentityUrlHC"]), name: "identityapi-check", tags: new string[] { "identityapi" });
+
             return services;
         }
 
@@ -246,7 +246,7 @@ namespace Microsoft.eShopOnContainers.WebMVC
                 options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
                 options.DefaultChallengeScheme = OpenIdConnectDefaults.AuthenticationScheme;
             })
-            .AddCookie(setup=>setup.ExpireTimeSpan = TimeSpan.FromHours(2))
+            .AddCookie(setup => setup.ExpireTimeSpan = TimeSpan.FromHours(2))
             .AddOpenIdConnect(options =>
             {
                 options.SignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
@@ -265,7 +265,7 @@ namespace Microsoft.eShopOnContainers.WebMVC
                 options.Scope.Add("marketing");
                 options.Scope.Add("locations");
                 options.Scope.Add("webshoppingagg");
-                options.Scope.Add("orders.signalrhub");       
+                options.Scope.Add("orders.signalrhub");
             });
 
             return services;
