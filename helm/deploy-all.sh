@@ -191,7 +191,7 @@ if [[ !$skip_infrastructure ]]; then
   for infra in "${infras[@]}"
   do
     echo "Installing infrastructure: $infra"
-    helm install --values app.yaml --values inf.yaml --values $ingress_values_file --set app.name=$app_name --set inf.k8s.dns=$dns --name="$app_name-$infra" $infra     
+    helm install --values app.yaml --values inf.yaml --values $ingress_values_file --set app.name=$app_name --set inf.k8s.dns=$dns --set ingress.hosts[0]=$dns --name="$app_name-$infra" $infra     
   done  
 fi
 
@@ -199,9 +199,9 @@ for chart in "${charts[@]}"
 do
     echo "Installing: $chart"
     if [[ $use_custom_registry ]]; then 
-      helm install --set inf.registry.server=$container_registry --set inf.registry.login=$docker_username --set inf.registry.pwd=$docker_password --set inf.registry.secretName=eshop-docker-scret --values app.yaml --values inf.yaml --values $ingress_values_file --set app.name=$app_name --set inf.k8s.dns=$dns --set image.tag=$image_tag --set image.pullPolicy=Always --name="$app_name-$chart" $chart 
+      helm install --set inf.registry.server=$container_registry --set inf.registry.login=$docker_username --set inf.registry.pwd=$docker_password --set inf.registry.secretName=eshop-docker-scret --values app.yaml --values inf.yaml --values $ingress_values_file --set app.name=$app_name --set inf.k8s.dns=$dns --set ingress.hosts[0]=$dns --set image.tag=$image_tag --set image.pullPolicy=Always --name="$app_name-$chart" $chart 
     elif [[ $chart != "eshop-common" ]]; then  # eshop-common is ignored when no secret must be deployed
-      helm install --values app.yaml --values inf.yaml --values $ingress_values_file --set app.name=$app_name --set inf.k8s.dns=$dns --set image.tag=$image_tag --set image.pullPolicy=Always --name="$app_name-$chart" $chart 
+      helm install --values app.yaml --values inf.yaml --values $ingress_values_file --set app.name=$app_name --set inf.k8s.dns=$dns --set ingress.hosts[0]=$dns --set image.tag=$image_tag --set image.pullPolicy=Always --name="$app_name-$chart" $chart 
     fi
 done
 
