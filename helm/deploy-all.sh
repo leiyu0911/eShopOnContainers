@@ -167,11 +167,11 @@ if [[ -z $dns ]]; then
   echo "No DNS specified. Ingress resources will be bound to public IP."
 fi
 
-# if [[ $clean ]]; then
-#   echo "Cleaning previous helm releases..."
-#   helm delete --purge $(helm ls -q) 
-#   echo "Previous releases deleted"
-# fi
+if [[ $clean ]]; then
+  echo "Cleaning previous helm releases..."
+  helm delete --purge $(helm ls -q) 
+  echo "Previous releases deleted"
+fi
 
 use_custom_registry=''
 
