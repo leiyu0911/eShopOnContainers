@@ -59,7 +59,7 @@ END
 app_name='eshop'
 aks_name=''
 aks_rg=''
-build_images='yes'
+build_images='no'
 clean='yes'
 build_solution=''
 container_registry=''
