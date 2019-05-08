@@ -158,7 +158,7 @@ if [[ $dns == "aks" ]]; then
     echo "Error: when getting DNS of AKS $aks_name (in resource group $aks_rg). Please ensure AKS has httpRouting enabled AND Azure CLI is logged in and is of version 2.0.37 or higher."
     exit 1
   fi
-  $dns=${dns//[\"]/""}
+  # $dns=${dns//[\"]/""}
   echo "DNS base found is $dns. Will use $aks_name.$dns for the app!"
 fi
 
