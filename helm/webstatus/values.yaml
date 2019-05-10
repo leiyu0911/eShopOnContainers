@@ -3,7 +3,7 @@ clusterName: eshop-aks
 pathBase: /webstatus
 
 image:
-  repository: eshop/webstatus
+  repository: rexlei/webstatus
   tag: latest
   pullPolicy: IfNotPresent
 
