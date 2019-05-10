@@ -4,7 +4,7 @@ pathBase: /webhooks-api
 
 image:
   repository: rexlei/webhooks.api
-  tag: latest
+  tag: linux-latest
   pullPolicy: IfNotPresent
 
 service:

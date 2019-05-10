@@ -4,7 +4,7 @@ pathBase: /identity
 
 image:
   repository: rexlei/identity.api
-  tag: latest
+  tag: linux-latest
   pullPolicy: IfNotPresent
 
 service:

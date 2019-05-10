@@ -4,7 +4,7 @@ pathBase: /mobileshoppingapigw
 
 image:
   repository: rexlei/ocelotapigw
-  tag: latest
+  tag: linux-latest
   pullPolicy: IfNotPresent
 
 service:

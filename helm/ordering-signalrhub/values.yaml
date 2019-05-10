@@ -4,7 +4,7 @@ pathBase: /ordering-signalrhub
 
 image:
   repository: rexlei/ordering.signalrhub
-  tag: latest
+  tag: linux-latest
   pullPolicy: IfNotPresent
 
 service:

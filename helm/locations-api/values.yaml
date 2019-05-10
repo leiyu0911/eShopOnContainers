@@ -4,7 +4,7 @@ pathBase: /locations-api
 
 image:
   repository: rexlei/locations.api
-  tag: latest
+  tag: linux-latest
   pullPolicy: IfNotPresent
 
 service:
