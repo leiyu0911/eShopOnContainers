@@ -59,7 +59,7 @@ END
 app_name='eshop'
 aks_name=''
 aks_rg=''
-build_images='no'
+build_images='yes'
 clean='yes'
 build_solution=''
 container_registry=''
@@ -67,7 +67,7 @@ docker_password=''
 docker_username=''
 dns=''
 image_tag='latest'
-push_images='no'
+push_images='yes'
 skip_infrastructure=''
 use_local_k8s=''
 
@@ -118,7 +118,7 @@ export TAG=$image_tag
 
 if [[ $build_images ]]; then
   echo "#################### Building the $app_name Docker images ####################"
-  docker-compose -p ../.. -f ../../docker-compose.yml build
+  docker-compose -p .. -f ../docker-compose.yml build
 
   # Remove temporary images
   docker rmi $(docker images -qf "dangling=true") 
