@@ -131,7 +131,7 @@ if [[ $push_images ]]; then
   for service in "${services[@]}"
   do
     echo "Pushing image for service $service..."
-    docker tag "eshop/$service:$image_tag" "$container_registry/$service:$image_tag"
+    docker tag "rexlei/$service:$image_tag" "$container_registry/$service:$image_tag"
     docker push "$container_registry/$service:$image_tag"
   done
 fi
