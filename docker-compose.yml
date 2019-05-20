@@ -3,10 +3,10 @@ version: '3.4'
 services:
 
   seq:
-    image: datalust/seq:5.20.01
+    image: datalust/seq:latest
 
   sql.data:
-    image: microsoft/mssql-server-linux:2017-5.20.01
+    image: microsoft/mssql-server-linux:2017-latest
 
   nosql.data:
     image: mongo
