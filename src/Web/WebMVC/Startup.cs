@@ -41,7 +41,7 @@ namespace Microsoft.eShopOnContainers.WebMVC
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddAppInsight(Configuration)
-                    //.AddHealthChecks(Configuration)
+                    .AddHealthChecks(Configuration)
                     .AddCustomMvc(Configuration)
                     .AddDevspaces()
                     .AddHttpClientServices(Configuration)
